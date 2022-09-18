@@ -64,6 +64,19 @@
   (load bootstrap-file nil 'nomessage))
 #+END_SRC
 
+** Configure use-package to use straight.el
+#+BEGIN_SRC emacs-lisp
+;; Install use-package with straight.el
+(straight-use-package 'use-package)
+
+;; Configure use-package to use straight.el by default
+(use-package straight
+             :custom (straight-use-package-by-default (not (eq system-type 'gnu/linux))))
+
+;; Load the helper package for commands like `straight-x-clean-unused-repos'
+(require 'straight-x) ; if you put this one before straight.el installation during start-up i will cause troble :)
+#+END_SRC
+
 * Completion framework
 #+BEGIN_SRC emacs-lisp
 
